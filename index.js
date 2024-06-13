@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 const authRouter = require('./routes/auth')
 const cartRouter = require('./routes/carts')
@@ -10,7 +11,6 @@ const orderRouter = require('./routes/orders')
 const connectDB = async () => {
     try {
         await mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@ecommerceusers.rcslsip.mongodb.net/?retryWrites=true&w=majority&appName=EcommerceUsers`)
-
         console.log('Connected')
     }
     catch (error) {
@@ -21,6 +21,7 @@ connectDB()
 
 const app =  express();
 app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => res.send('Hello world'));
 
