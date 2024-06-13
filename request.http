@@ -1,0 +1,131 @@
+GET http://localhost:5000/api/auth
+
+
+###
+
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "nguyentuan22072004@gmail.com",
+  "password": "tuan",
+  "firstname": "tuan",
+  "lastname": "nguyen",
+  "address": {
+    "country": "vietnam",
+    "city": "ha noi",
+    "province": "dong anh",
+    "detail": "xom nguyen"
+  }
+}
+
+###
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "nguyentuan22072004@gmail.com",
+  "password": "tuan"
+}
+
+###
+
+POST http://localhost:5000/api/auth/token
+Content-Type: application/json
+
+{
+    "refreshToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTc4NjUxMDAsImV4cCI6MTcxNzk1MTUwMH0.RqE-u6z7l0HZAj-C4s7_2z09tbywDR0EgSuvjJTAWiI"
+}
+
+###
+DELETE http://localhost:5000/api/auth/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTc4NjcwMTMsImV4cCI6MTcxNzg2NzMxM30.Hm_BGUO1i26qeqRyUgCXQrfj60TBSk4RXycKX7AvB0g
+
+###
+
+POST http://localhost:5000/api/cart
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTc5NDk2NTksImV4cCI6MTcxNzk1MzI1OX0.JBeTrWkwlrm5nRmKbNbE8DUK52-cxPrBA9u_sS1Nilo
+
+###
+
+GET http://localhost:5000/api/cart
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTc5NTExNzUsImV4cCI6MTcxNzk1NDc3NX0.ZXAttis9Ju11nMYUv7bKObWlk710hDF7H8fkwRj374U
+
+###
+
+PUT http://localhost:5000/api/cart
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTc5NDk2NTksImV4cCI6MTcxNzk1MzI1OX0.JBeTrWkwlrm5nRmKbNbE8DUK52-cxPrBA9u_sS1Nilo
+
+{
+  "products":   [
+    {
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "productId": 2,
+      "quantity": 2
+    },
+    {
+      "productId": 4,
+      "quantity": 11
+    }
+  ]
+}
+
+###
+DELETE http://localhost:5000/api/cart
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTc5NDk2NTksImV4cCI6MTcxNzk1MzI1OX0.JBeTrWkwlrm5nRmKbNbE8DUK52-cxPrBA9u_sS1Nilo
+
+
+### 
+
+GET http://localhost:5000/api/order
+
+
+###
+POST  http://localhost:5000/api/order
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTgyNDEwMjIsImV4cCI6MTcxODI0NDYyMn0.u6mTrfWncKZbvx0aY56MBetATp9yxWsFrgcT7OGP9h0
+
+{
+  "address": {
+    "country": "vietnam",
+    "city": "ha noi",
+    "province": "dong anh",
+    "detail": "xom nguyen"
+  },
+  "products":   [
+    {
+      "productId": 4,
+      "quantity": 2
+    },
+    {
+      "productId": 9,
+      "quantity": 2
+    },
+    {
+      "productId": 12,
+      "quantity": 11
+    }
+  ]
+}
+
+###
+GET http://localhost:5000/api/order
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTgyNDY4MTksImV4cCI6MTcxODI1MDQxOX0.VRmGl4Y0Uwa1aawDxEZnPDiv2fbx5VsEn5Qd0JFv6QM
+
+###
+
+DELETE http://localhost:5000/api/order/666a49b9356e0704e126c1fb
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTgyNDY4MTksImV4cCI6MTcxODI1MDQxOX0.VRmGl4Y0Uwa1aawDxEZnPDiv2fbx5VsEn5Qd0JFv6QM
+
+
+
+
+
+
+
+
+
