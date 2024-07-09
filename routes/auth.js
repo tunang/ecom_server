@@ -10,6 +10,20 @@ const verifyToken = require("../middleware/authMiddle");
 
 router.get("/", (req, res) => res.send("USER ROUTE"));
 
+router.post("/", verifyToken, async (req, res) => {
+  try {
+    const user = await users.findById(req.userId).select('-password');
+    if (!user)
+      return res
+        .status(400)
+        .json({ success: false, message: "User not found" });
+    res.json({ success: true, user });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
+
 router.post("/register", async (req, res) => {
   const { email, password, firstname, lastname, address } = req.body;
 
@@ -79,7 +93,7 @@ router.post("/login", async (req, res) => {
 
   try {
     //Check for existing user
-    const user = await users.findOne({ email : email });
+    const user = await users.findOne({ email: email });
 
     if (!user) {
       return res
@@ -87,7 +101,7 @@ router.post("/login", async (req, res) => {
         .json({ success: false, message: "Incorrect username/password" });
     }
     //Username found
-    // console.log(user);
+    //console.log(user);
     const passwordValid = await argon2.verify(user.password, password);
 
     if (!passwordValid) {
@@ -100,7 +114,7 @@ router.post("/login", async (req, res) => {
     const tokens = generateTokens({ userId: user._id });
 
     let updateRefreshToken = {
-      $set :{
+      $set: {
         refreshToken: tokens.refreshToken,
       },
     };
@@ -108,39 +122,38 @@ router.post("/login", async (req, res) => {
     const refreshTokenUpdateCondition = { _id: user._id };
 
     const result = await users.updateOne(
-        refreshTokenUpdateCondition,
-        updateRefreshToken
+      refreshTokenUpdateCondition,
+      updateRefreshToken
     );
-  
-    return res.json({
-        success: true,
-        message: "User login successfully",
-        tokens,
-    });
 
+    return res.json({
+      success: true,
+      message: "User login successfully",
+      tokens,
+    });
   } catch (error) {
     console.log(error);
     res.status(500).json({ success: false, message: "Internel server error" });
   }
 });
 
-router.post('/token', async (req, res) => {
+router.post("/token", async (req, res) => {
   const refreshToken = req.body.refreshToken;
 
-  if(!refreshToken){
+  if (!refreshToken) {
     return res.sendStatus(401);
   }
 
-  const user = await users.findOne({refreshToken : refreshToken});
-  if(!user) return res.sendStatus(403);
+  const user = await users.findOne({ refreshToken: refreshToken });
+  if (!user) return res.sendStatus(403);
 
   try {
     jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
-    
+
     const tokens = generateTokens({ userId: user._id });
 
     let updateRefreshToken = {
-      $set :{
+      $set: {
         refreshToken: tokens.refreshToken,
       },
     };
@@ -148,34 +161,31 @@ router.post('/token', async (req, res) => {
     const refreshTokenUpdateCondition = { _id: user._id };
 
     const result = await users.updateOne(
-        refreshTokenUpdateCondition,
-        updateRefreshToken
+      refreshTokenUpdateCondition,
+      updateRefreshToken
     );
-  
+
     return res.json({
-        success: true,
-        message: "Token updated successfully",
-        tokens,
+      success: true,
+      message: "Token updated successfully",
+      tokens,
     });
   } catch (error) {
     console.log(error);
     res.status(500).json({ success: false, message: "Internel server error" });
   }
-})
+});
 
-
-router.delete('/logout', verifyToken, async (req, res) => {
-  const user = await users.findOne({_id : req.userId});
+router.delete("/logout", verifyToken, async (req, res) => {
+  const user = await users.findOne({ _id: req.userId });
 
   if (!user) {
-    return res
-      .status(400)
-      .json({ success: false, message: "cant logout" });
+    return res.status(400).json({ success: false, message: "cant logout" });
   }
 
   try {
     let updateRefreshToken = {
-      $set :{
+      $set: {
         refreshToken: null,
       },
     };
@@ -183,20 +193,19 @@ router.delete('/logout', verifyToken, async (req, res) => {
     const refreshTokenUpdateCondition = { _id: user._id };
 
     const result = await users.updateOne(
-        refreshTokenUpdateCondition,
-        updateRefreshToken
+      refreshTokenUpdateCondition,
+      updateRefreshToken
     );
-  
+
     return res.json({
-        success: true,
-        message: "Log out successfully",
-      
+      success: true,
+      message: "Log out successfully",
     });
   } catch (error) {
     console.log(error);
     res.status(500).json({ success: false, message: "Internel server error" });
   }
-})
+});
 
 const generateTokens = (payload) => {
   //create jwt

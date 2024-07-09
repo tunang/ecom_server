@@ -3,6 +3,11 @@ GET http://localhost:5000/api/auth
 
 ###
 
+POST http://localhost:5000/api/auth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjAyODI1NDEsImV4cCI6MTcyMDI4MjYwMX0.86lG-Qo690-wjYcXMYLq3RG-SU9tzQSb68_TB1YaeaU
+
+###
+
 POST http://localhost:5000/api/auth/register
 Content-Type: application/json
 
@@ -34,12 +39,12 @@ POST http://localhost:5000/api/auth/token
 Content-Type: application/json
 
 {
-    "refreshToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTc4NjUxMDAsImV4cCI6MTcxNzk1MTUwMH0.RqE-u6z7l0HZAj-C4s7_2z09tbywDR0EgSuvjJTAWiI"
+    "refreshToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTkxNTM4NzgsImV4cCI6MTcxOTI0MDI3OH0.8lkhxE6QkxXerMbKCjxwttsMHCUrdH4hfrO30tM7IGs"
 }
 
 ###
 DELETE http://localhost:5000/api/auth/logout
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTc4NjcwMTMsImV4cCI6MTcxNzg2NzMxM30.Hm_BGUO1i26qeqRyUgCXQrfj60TBSk4RXycKX7AvB0g
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjA0MzE1MjksImV4cCI6MTcyMDQzMTU4OX0.f4XrKIBv0NEDTByQya6nsL2SrqzN3enZy4rUZmC1djw
 
 ###
 
@@ -55,21 +60,24 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0N
 
 PUT http://localhost:5000/api/cart
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTc5NDk2NTksImV4cCI6MTcxNzk1MzI1OX0.JBeTrWkwlrm5nRmKbNbE8DUK52-cxPrBA9u_sS1Nilo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjAxMjQwOTksImV4cCI6MTcyMDEyNDE1OX0.bYwyJjtXNp49Wg7WXh2rdSLiOvZa07E9PaYzzVqwT_M
 
 {
   "products":   [
     {
-      "productId": 1,
-      "quantity": 2
+      "id": 1,
+      "quantity": 2,
+      "size": "S"
     },
     {
-      "productId": 2,
-      "quantity": 2
+      "id": 2,
+      "quantity": 2,
+      "size": "S"
     },
     {
-      "productId": 4,
-      "quantity": 11
+      "id": 4,
+      "quantity": 11,
+      "size": "S"
     }
   ]
 }
@@ -85,36 +93,44 @@ GET http://localhost:5000/api/order
 
 
 ###
-POST  http://localhost:5000/api/order
+POST http://localhost:5000/api/order
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTgyNDEwMjIsImV4cCI6MTcxODI0NDYyMn0.u6mTrfWncKZbvx0aY56MBetATp9yxWsFrgcT7OGP9h0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjA1NDg5MTUsImV4cCI6MTcyMDU0ODk3NX0.Li9kPnz2UymB10SoigZVUy6u5SsJEZ1tSfqtjcjjW14
 
 {
+  "payment": "CASH" ,
   "address": {
     "country": "vietnam",
     "city": "ha noi",
     "province": "dong anh",
     "detail": "xom nguyen"
   },
-  "products":   [
+  "products":  [
     {
-      "productId": 4,
+      "id": 4,
+      "quantity": 6
+    },
+    {
+      "id": 9,
       "quantity": 2
     },
     {
-      "productId": 9,
-      "quantity": 2
-    },
-    {
-      "productId": 12,
+      "id": 12,
       "quantity": 11
     }
   ]
+
+  
 }
 
 ###
 GET http://localhost:5000/api/order
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTgyNDY4MTksImV4cCI6MTcxODI1MDQxOX0.VRmGl4Y0Uwa1aawDxEZnPDiv2fbx5VsEn5Qd0JFv6QM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjA1NDg1OTUsImV4cCI6MTcyMDU0ODY1NX0.EPJpW980W-gZewsxT9P4rV_mwM5kEs_dNjX6p4CKRUw
+
+###
+
+GET http://localhost:5000/api/order/668d7d27b5e48644d830dfc6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjA1NDg2OTksImV4cCI6MTcyMDU0ODc1OX0.oDuevXQKow1Lkh2wB1m-YSCA1JF3S7-6Ap0CGY075yc
 
 ###
 

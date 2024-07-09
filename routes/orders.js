@@ -22,6 +22,20 @@ router.get("/", verifyToken, async (req, res) => {
     }
   });
 
+//@route GET api/orders
+//@desc Get single order by id
+//@access Private
+  router.get("/:id", verifyToken, async (req, res) => {
+    try {
+      const order = await orders.find({ _id: req.params.id }).populate("user", ["email", "firstname", "lastname"]);
+  
+      res.json({ success: true, order : order });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ success: false, message: "Internel server error" });
+    }
+  });
+
 
 //@route POST api/orders
 //@desc Create orders
