@@ -29,6 +29,18 @@ const OrdersSchema = new Schema({
         },
     },
 
+    name:{
+        type: String,
+    },
+    
+    email:{
+        type: String,
+    },
+
+    phonenumber:{
+        type: String,
+    },
+
     shipping:{
         type: String,
         enum: ["SHIPPED", "SHIPPING", "PACKING"],

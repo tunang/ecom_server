@@ -41,11 +41,14 @@ router.get("/", verifyToken, async (req, res) => {
 //@desc Create orders
 //@access Private
 router.post("/", verifyToken, async (req, res) => {
-  const { address, payment, products } = req.body;
+  const { address, payment, products, phonenumber, name, email } = req.body;
 
   try {
     const newOrder = new orders({
       user: req.userId,
+      phonenumber,
+      name,
+      email,
       address,
       payment,
       products,

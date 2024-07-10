@@ -95,7 +95,7 @@ GET http://localhost:5000/api/order
 ###
 POST http://localhost:5000/api/order
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjA1NDg5MTUsImV4cCI6MTcyMDU0ODk3NX0.Li9kPnz2UymB10SoigZVUy6u5SsJEZ1tSfqtjcjjW14
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjA1NTE2NTksImV4cCI6MTcyMDU1MTcxOX0.7UFkq19fOoJDVBm0OvymXHkRDtsJF7jt5PhQZptTQM0
 
 {
   "payment": "CASH" ,
@@ -105,22 +105,138 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0N
     "province": "dong anh",
     "detail": "xom nguyen"
   },
-  "products":  [
+  "products": [
     {
-      "id": 4,
-      "quantity": 6
+      "id": 84,
+      "title": "Gigabyte Aorus Men Tshirt",
+      "description": "The Gigabyte Aorus Men Tshirt is a cool and casual shirt for gaming enthusiasts. With the Aorus logo and sleek design, it's perfect for expressing your gaming style.",
+      "category": "mens-shirts",
+      "price": 24.99,
+      "discountPercentage": 12.6,
+      "rating": 4.95,
+      "stock": 64,
+      "tags": [
+        "clothing",
+        "men's t-shirts"
+      ],
+      "brand": "Gigabyte",
+      "sku": "QA703Y60",
+      "weight": 2,
+      "dimensions": {
+        "width": 8.54,
+        "height": 23.52,
+        "depth": 5.66
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Highly recommended!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Logan Lawson",
+          "reviewerEmail": "logan.lawson@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great value for money!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Logan Lawson",
+          "reviewerEmail": "logan.lawson@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Great value for money!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Oscar Powers",
+          "reviewerEmail": "oscar.powers@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 4,
+      "meta": {
+        "createdAt": "2024-05-23T08:56:21.623Z",
+        "updatedAt": "2024-05-23T08:56:21.623Z",
+        "barcode": "3072645939073",
+        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/1.png",
+        "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/2.png",
+        "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/3.png",
+        "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/4.png"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/thumbnail.png",
+      "qty": 1,
+      "size": 3
     },
     {
-      "id": 9,
-      "quantity": 2
-    },
-    {
-      "id": 12,
-      "quantity": 11
+      "id": 84,
+      "title": "Gigabyte Aorus Men Tshirt",
+      "description": "The Gigabyte Aorus Men Tshirt is a cool and casual shirt for gaming enthusiasts. With the Aorus logo and sleek design, it's perfect for expressing your gaming style.",
+      "category": "mens-shirts",
+      "price": 24.99,
+      "discountPercentage": 12.6,
+      "rating": 4.95,
+      "stock": 64,
+      "tags": [
+        "clothing",
+        "men's t-shirts"
+      ],
+      "brand": "Gigabyte",
+      "sku": "QA703Y60",
+      "weight": 2,
+      "dimensions": {
+        "width": 8.54,
+        "height": 23.52,
+        "depth": 5.66
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Highly recommended!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Logan Lawson",
+          "reviewerEmail": "logan.lawson@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great value for money!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Logan Lawson",
+          "reviewerEmail": "logan.lawson@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Great value for money!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Oscar Powers",
+          "reviewerEmail": "oscar.powers@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 4,
+      "meta": {
+        "createdAt": "2024-05-23T08:56:21.623Z",
+        "updatedAt": "2024-05-23T08:56:21.623Z",
+        "barcode": "3072645939073",
+        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/1.png",
+        "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/2.png",
+        "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/3.png",
+        "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/4.png"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/thumbnail.png",
+      "qty": 1,
+      "size": 2
     }
   ]
-
-  
 }
 
 ###
