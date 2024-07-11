@@ -214,7 +214,7 @@ const generateTokens = (payload) => {
   });
 
   const refreshToken = jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, {
-    expiresIn: "120s",
+    expiresIn: "48h",
   });
 
   return { accessToken, refreshToken };
