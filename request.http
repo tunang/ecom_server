@@ -39,7 +39,7 @@ POST http://localhost:5000/api/auth/token
 Content-Type: application/json
 
 {
-    "refreshToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTkxNTM4NzgsImV4cCI6MTcxOTI0MDI3OH0.8lkhxE6QkxXerMbKCjxwttsMHCUrdH4hfrO30tM7IGs"
+    "refreshToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjA3NzQ2MDQsImV4cCI6MTcyMDc3NDYxNn0.P-735MTzLRQ2ESIWbuqbwDQMLAFRePqRJzyMc7efBRk"
 }
 
 ###
@@ -49,12 +49,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0N
 ###
 
 POST http://localhost:5000/api/cart
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTc5NDk2NTksImV4cCI6MTcxNzk1MzI1OX0.JBeTrWkwlrm5nRmKbNbE8DUK52-cxPrBA9u_sS1Nilo
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjA3NzQ0MjEsImV4cCI6MTcyMDc3NDQ4MX0.WjaRWvEWUukXG4M4X0n8Hi0tOCpFxDZuvKVMuRIuAVM
 ###
 
 GET http://localhost:5000/api/cart
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTkwODQ4MDIsImV4cCI6MTcxOTA4ODQwMn0.L2hsBnz2WWmhwBIWNAZKgG6MQPI-zMHxBB94uxCesxc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjA3NzQ0MjEsImV4cCI6MTcyMDc3NDQ4MX0.WjaRWvEWUukXG4M4X0n8Hi0tOCpFxDZuvKVMuRIuAVM
 
 ###
 
@@ -95,10 +94,13 @@ GET http://localhost:5000/api/order
 ###
 POST http://localhost:5000/api/order
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjA1NTE2NTksImV4cCI6MTcyMDU1MTcxOX0.7UFkq19fOoJDVBm0OvymXHkRDtsJF7jt5PhQZptTQM0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjA2MDA0NjcsImV4cCI6MTcyMDYwMDUyN30.qmDNaNUH3L4pJy_TIg_gPcA3qrLckEfAkL2MZ6pSL0s
 
 {
-  "payment": "CASH" ,
+  "payment": "CASH",
+  "phonenumber" : "0999999",
+  "name" : "Tuan anh",
+  "email": "adsfads@gmail.com",
   "address": {
     "country": "vietnam",
     "city": "ha noi",
@@ -254,7 +256,151 @@ DELETE http://localhost:5000/api/order/666a49b9356e0704e126c1fb
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTgyNDY4MTksImV4cCI6MTcxODI1MDQxOX0.VRmGl4Y0Uwa1aawDxEZnPDiv2fbx5VsEn5Qd0JFv6QM
 
 
+###
 
+GET http://localhost:5000/api/favorite
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjA4MTQ4MDgsImV4cCI6MTcyMDgxNTEwOH0.D8KMgiQOQqT7xFIXTNgim_tNViflwpbQEp4sTuVnF-U
+
+###
+
+POST http://localhost:5000/api/favorite
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjA4MTQ0ODMsImV4cCI6MTcyMDgxNDc4M30.6_Fk4hy-5HVodxEnGt4YZmjcc-K_e08mUqZjrho0maA
+
+###
+PUT http://localhost:5000/api/favorite
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjA4MTQ0ODMsImV4cCI6MTcyMDgxNDc4M30.6_Fk4hy-5HVodxEnGt4YZmjcc-K_e08mUqZjrho0maA
+
+{
+  "products": [
+    {
+      "id": 84,
+      "title": "Gigabyte Aorus Men Tshirt",
+      "description": "The Gigabyte Aorus Men Tshirt is a cool and casual shirt for gaming enthusiasts. With the Aorus logo and sleek design, it's perfect for expressing your gaming style.",
+      "category": "mens-shirts",
+      "price": 24.99,
+      "discountPercentage": 12.6,
+      "rating": 4.95,
+      "stock": 64,
+      "tags": [
+        "clothing",
+        "men's t-shirts"
+      ],
+      "brand": "Gigabyte",
+      "sku": "QA703Y60",
+      "weight": 2,
+      "dimensions": {
+        "width": 8.54,
+        "height": 23.52,
+        "depth": 5.66
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Highly recommended!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Logan Lawson",
+          "reviewerEmail": "logan.lawson@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great value for money!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Logan Lawson",
+          "reviewerEmail": "logan.lawson@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Great value for money!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Oscar Powers",
+          "reviewerEmail": "oscar.powers@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 4,
+      "meta": {
+        "createdAt": "2024-05-23T08:56:21.623Z",
+        "updatedAt": "2024-05-23T08:56:21.623Z",
+        "barcode": "3072645939073",
+        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/1.png",
+        "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/2.png",
+        "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/3.png",
+        "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/4.png"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/thumbnail.png"
+    },
+    {
+      "id": 84,
+      "title": "Gigabyte Aorus Men Tshirt",
+      "description": "The Gigabyte Aorus Men Tshirt is a cool and casual shirt for gaming enthusiasts. With the Aorus logo and sleek design, it's perfect for expressing your gaming style.",
+      "category": "mens-shirts",
+      "price": 24.99,
+      "discountPercentage": 12.6,
+      "rating": 4.95,
+      "stock": 64,
+      "tags": [
+        "clothing",
+        "men's t-shirts"
+      ],
+      "brand": "Gigabyte",
+      "sku": "QA703Y60",
+      "weight": 2,
+      "dimensions": {
+        "width": 8.54,
+        "height": 23.52,
+        "depth": 5.66
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Highly recommended!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Logan Lawson",
+          "reviewerEmail": "logan.lawson@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great value for money!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Logan Lawson",
+          "reviewerEmail": "logan.lawson@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Great value for money!",
+          "date": "2024-05-23T08:56:21.623Z",
+          "reviewerName": "Oscar Powers",
+          "reviewerEmail": "oscar.powers@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 4,
+      "meta": {
+        "createdAt": "2024-05-23T08:56:21.623Z",
+        "updatedAt": "2024-05-23T08:56:21.623Z",
+        "barcode": "3072645939073",
+        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/1.png",
+        "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/2.png",
+        "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/3.png",
+        "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/4.png"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/thumbnail.png"
+    }
+  ]
+}
 
 
 

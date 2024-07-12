@@ -7,14 +7,10 @@ const FavoriteProductsSchema = new Schema({
         ref: "users"
     },
     
-    favoriteId : {
-        type: Schema.Types.ObjectId,
-    },
-
-    product:{
+    products:{
         type: Array
     }
 })
 
 
-module.exports = mongoose.model("favoriteproducts", FavoriteProductsSchema);
+module.exports = mongoose.model("favoriteProducts", FavoriteProductsSchema);

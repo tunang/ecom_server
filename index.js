@@ -6,6 +6,7 @@ const cors = require('cors')
 const authRouter = require('./routes/auth')
 const cartRouter = require('./routes/carts')
 const orderRouter = require('./routes/orders')
+const favoriteRouter = require('./routes/favorite')
 
 
 const connectDB = async () => {
@@ -28,6 +29,8 @@ app.get('/', (req, res) => res.send('Hello world'));
 app.use('/api/auth', authRouter);
 app.use('/api/cart', cartRouter);
 app.use('/api/order', orderRouter);
+app.use('/api/favorite', favoriteRouter);
+
 
 
 

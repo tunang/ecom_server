@@ -25,7 +25,7 @@ router.post("/", verifyToken, async (req, res) => {
   try {
     const newCart = new carts({
       user: req.userId,
-      product: [],
+      products: [],
     });
 
     await newCart.save();
