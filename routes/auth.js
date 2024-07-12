@@ -210,11 +210,11 @@ router.delete("/logout", verifyToken, async (req, res) => {
 const generateTokens = (payload) => {
   //create jwt
   const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: "60s",
+    expiresIn: process.env.ACCESS_TOKEN_EXPIRE,
   });
 
   const refreshToken = jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, {
-    expiresIn: "48h",
+    expiresIn: process.env.REFRESH_TOKEN_EXPIRE,
   });
 
   return { accessToken, refreshToken };
