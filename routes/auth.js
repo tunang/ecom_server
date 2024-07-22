@@ -145,9 +145,10 @@ router.post("/token", async (req, res) => {
   }
 
   const user = await users.findOne({ refreshToken: refreshToken });
-  if (!user) return res.sendStatus(403);
+  if (!user) return res.sendStatus(403).json({ success: false, message: "Can find" });
 
   try {
+    console.log(refreshToken);
     jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
 
     const tokens = generateTokens({ userId: user._id });

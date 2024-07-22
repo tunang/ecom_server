@@ -39,7 +39,7 @@ POST http://localhost:5000/api/auth/token
 Content-Type: application/json
 
 {
-    "refreshToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjA3NzQ2MDQsImV4cCI6MTcyMDc3NDYxNn0.P-735MTzLRQ2ESIWbuqbwDQMLAFRePqRJzyMc7efBRk"
+    "refreshToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjE2MjI3ODIsImV4cCI6MTcyMTcwOTE4Mn0.ISaAgzbRm6AvWFwdm_npFDJ0x_He9cl3EBSHksVe87A"
 }
 
 ###
@@ -252,8 +252,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0N
 
 ###
 
-DELETE http://localhost:5000/api/order/666a49b9356e0704e126c1fb
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MTgyNDY4MTksImV4cCI6MTcxODI1MDQxOX0.VRmGl4Y0Uwa1aawDxEZnPDiv2fbx5VsEn5Qd0JFv6QM
+DELETE http://localhost:5000/api/order/668e4936ef5c0f59942e68de
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY0NzE0MzRiM2EwZGU4ODRkMWM4ZjkiLCJpYXQiOjE3MjExNTQxNDAsImV4cCI6MTcyMTE1NDQ0MH0.0VrJu7fvXcIgMd_QwijXMBzxBXsiK-p5KH6hI2_KNpo
 
 
 ###
