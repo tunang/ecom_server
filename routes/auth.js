@@ -5,6 +5,8 @@ const jwt = require("jsonwebtoken");
 
 var ObjectId = require("mongodb").ObjectId;
 
+const carts = require('../models/Cart')
+const favProducts = require('../models/FavoriteProducts')
 const users = require("../models/Users");
 const verifyToken = require("../middleware/authMiddle");
 
@@ -53,6 +55,21 @@ router.post("/register", async (req, res) => {
       address,
     });
     await newUser.save();
+
+    const newCart = new carts({
+      user: newUser._id,
+      products: [],
+    });
+
+    await newCart.save();
+
+    const newFavProductsList = new favProducts({
+      user: newUser._id,
+      products: [],
+    });
+
+    await newFavProductsList.save();
+    
 
     //Return token
     const tokens = generateTokens({ userId: newUser._id });
